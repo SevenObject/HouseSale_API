@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="b0l3r3pw.x5o~" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="LiangZijing\" />
+    <Folder Include="WangBaoYi\" />
+    <Folder Include="ZhuYanSheng\" />
+    <Folder Include="FengLuShun\" />
+    <Folder Include="LiYongHao\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HouseModel\HouseModel.csproj" />
+  </ItemGroup>
+
+</Project>

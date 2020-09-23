@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using HouseBLL.ZhaoWanJieBLL;
 using HouseModel;
+using Microsoft.AspNetCore.Cors;
 
 namespace HouseSale.Controllers.ZhaoWanJieControllers
 {
+    [EnableCors("cros")]
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class HouseInfoContr : ControllerBase

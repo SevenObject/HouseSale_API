@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Cors;
 
 namespace HouseSale.Controllers.ZhaoWanJieControllers
 {
+    [EnableCors("cros")]
     [Route("api/[controller]/[action]")]
     [EnableCors("cors")]
     [ApiController]

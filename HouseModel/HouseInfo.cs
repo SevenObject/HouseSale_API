@@ -69,7 +69,7 @@ namespace HouseModel
         /// <summary>
         /// 建筑类别
         /// </summary>
-        public string HouseState { get; set; }
+        public string HouseStates { get; set; }
         /// <summary>
         /// 容积率
         /// </summary>

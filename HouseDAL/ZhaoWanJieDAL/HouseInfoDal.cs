@@ -36,7 +36,7 @@ namespace HouseDAL.ZhaoWanJieDAL
             }
             if (!string.IsNullOrEmpty(hantime))
             {
-                sql += $"and HandHouseTime>='{hantime}'";
+                sql += $"and HandHouseTime<='{hantime}'";
             }
             var list = db.GetToList<HouseInfo>(sql);
             if (pageindex<1)
@@ -87,8 +87,10 @@ namespace HouseDAL.ZhaoWanJieDAL
         /// <returns></returns>
         public int AddHouseInfo(HouseInfo h)
         {
-            string sql = $"insert into HouseInfo values ('{h.HName}','{h.HTPicture}','{h.HTPDateTime}','{h.ProjictSite}','{h.SellHouse}','{h.developers}','{h.SellState}','{h.Architecturearea}','{h.HandHouseTime}','{h.YearAstrict}','{h.HouseState}','{h.Plot}','{h.Greeningrate}','{h.Rim}')";
+            string sql = $"insert into HouseInfo values ('{h.HName}','{h.HTPicture}','{h.HTPDateTime}','{h.ProjictSite}','{h.SellHouse}','{h.developers}','{h.SellState}','{h.Architecturearea}','{h.HandHouseTime}','{h.YearAstrict}','{h.HouseStates}','{h.Plot}','{h.Greeningrate}','{h.Rim}')";
             return db.ExecuteNonQuery(sql);
         }
+
+         
     }
 }

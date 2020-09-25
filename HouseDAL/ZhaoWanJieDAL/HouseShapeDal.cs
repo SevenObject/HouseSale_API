@@ -13,29 +13,29 @@ namespace HouseDAL.ZhaoWanJieDAL
         /// <summary>
         /// 显示房间信息
         /// </summary>
-        /// <param name="name">根据经纪人</param>
+        /// <param name="aid">根据经纪人</param>
         /// <param name="tation">朝向</param>
         /// <param name="hid">户型</param>
         /// <param name="htid">楼盘</param>
         /// <returns></returns>
         public ShapePage GetHouseShapes(int aid,string tation,int hid,int htid,int pageindex,int pagesize)
         {
-            string sql = $"select * from HouseInfo s join HousT e h on s.HTId=h.HTId join HouseShape u on h.HId=u.HId join AdministratorData a on u.AId=a.AId where u.HouseState=0";
+            string sql = $"select * from HouseInfo s join HousType h on s.HTId=h.HTId join HouseShape u on h.HId=u.HId join AdministratorData a on u.AId=a.AId where u.HouseState=0 ";
             if (aid>0)
             {
-                sql += $"and a.AId='{aid}'";
+                sql += $"and a.AId='{aid}' order by u.HSId desc";
             }
             if (!string.IsNullOrEmpty(tation))
             {
-                sql += $"and h.Orientation='{tation}'";
+                sql += $"and h.Orientation='{tation}' order by u.HSId desc";
             }
             if (hid>0)
             {
-                sql += $"and h.HId='{hid}'";
+                sql += $"and h.HId='{hid}' order by u.HSId desc";
             }
             if (htid>0)
             {
-                sql += $"and s.HTId='{htid}'";
+                sql += $"and s.HTId='{htid}' order by u.HSId desc";
             }
             var list = db.GetToList<HouseShape>(sql);
             if (pageindex < 1)
@@ -91,6 +91,38 @@ namespace HouseDAL.ZhaoWanJieDAL
         {
             string sql = $"update HouseShape set AveragePrice='{price}',HouseState='{state}',AId='{aid}',HId='{hid}',HTId='{htid}' where HSId='{hsid}'";
             return db.ExecuteNonQuery(sql);
+        }
+        public ShapePage SeleShape(int ids,int pageindex,int pagesize)
+        {
+            string sql = $"select * from HouseInfo s join HousType h on s.HTId=h.HTId join HouseShape u on h.HId=u.HId join AdministratorData a on u.AId=a.AId where h.HId='{ids}'";
+            var list = db.GetToList<HouseShape>(sql);
+
+            if (pageindex < 1)
+            {
+                pageindex = 1;
+            }
+            var count = list.Count;
+            int pagecount = 0;
+            if (count % pagesize == 0)
+            {
+                pagecount = count / pagesize;
+            }
+            if (count % pagesize != 0)
+            {
+                pagecount = count / pagesize + 1;
+            }
+            if (pageindex > pagecount)
+            {
+                pageindex = pagecount;
+            }
+            ShapePage s = new ShapePage();
+            list = list.Skip((pageindex - 1) * pagesize).Take(pagesize).ToList();
+            s.houseShapes = list;
+            s.pageCount = pagecount;
+            s.pageIndex = pageindex;
+            s.pageSize = pagesize;
+            s.allCount = count;
+            return s;
         }
     }
 }

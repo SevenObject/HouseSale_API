@@ -6,10 +6,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using HouseBLL.ZhaoWanJieBLL;
 using HouseModel;
+using Microsoft.AspNetCore.Cors;
 
 namespace HouseSale.Controllers.ZhaoWanJieControllers
 {
     [Route("api/[controller]/[action]")]
+    [EnableCors("cors")]
     [ApiController]
     public class HousTypeContr : ControllerBase
     {
@@ -52,6 +54,11 @@ namespace HouseSale.Controllers.ZhaoWanJieControllers
         public int UpdateHousType(string price, int hid)
         {
             return typeBll.UpdateHousType(price, hid);
+        }
+        [HttpGet]
+        public Fen Sel(int ids, int pageindex, int pagesize)
+        {
+            return typeBll.Sel(ids, pageindex, pagesize);
         }
     }
 }

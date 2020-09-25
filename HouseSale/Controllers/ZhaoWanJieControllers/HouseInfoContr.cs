@@ -6,10 +6,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using HouseBLL.ZhaoWanJieBLL;
 using HouseModel;
+using Microsoft.AspNetCore.Cors;
 
 namespace HouseSale.Controllers.ZhaoWanJieControllers
 {
+    [EnableCors("cros")]
     [Route("api/[controller]/[action]")]
+    [EnableCors("cors")]
     [ApiController]
     public class HouseInfoContr : ControllerBase
     {
@@ -25,7 +28,7 @@ namespace HouseSale.Controllers.ZhaoWanJieControllers
         /// <param name="pagesize">每页几条</param>
         /// <returns></returns>
         [HttpGet]
-        public Page GetHouseInfos(string hname, string htptime, string hantime, int pageindex, int pagesize)
+        public Page GetHouseInfos(string hname, string htptime, string hantime, int pageindex=1, int pagesize=4)
         {
             return infoBll.GetHouseInfos(hname, htptime, hantime, pageindex, pagesize);
         }
@@ -51,5 +54,6 @@ namespace HouseSale.Controllers.ZhaoWanJieControllers
         {
             return infoBll.AddHouseInfo(h);
         }
+         
     }
 }

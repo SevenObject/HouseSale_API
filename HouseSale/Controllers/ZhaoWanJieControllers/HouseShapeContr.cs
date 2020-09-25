@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using HouseBLL.ZhaoWanJieBLL;
 using HouseModel;
+using Microsoft.AspNetCore.Cors;
 
 namespace HouseSale.Controllers.ZhaoWanJieControllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [EnableCors("cors")]
     public class HouseShapeContr : ControllerBase
     {
         HouseShapeBll shapeBll = new HouseShapeBll();
@@ -54,6 +56,11 @@ namespace HouseSale.Controllers.ZhaoWanJieControllers
         public int UpdateHouseShape(string price, int state, int aid, int hid, int htid, int hsid)
         {
             return shapeBll.UpdateHouseShape(price, state, aid, hid, htid, hsid);
+        }
+        [HttpGet]
+        public ShapePage SeleShape(int ids, int pageindex, int pagesize)
+        {
+            return shapeBll.SeleShape(ids, pageindex, pagesize);
         }
     }
 }

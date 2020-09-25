@@ -74,7 +74,7 @@ namespace HouseModel
         /// <summary>
         /// 交房时间
         /// </summary>
-        public string HandHouseTime { get; set; }
+        public DateTime HandHouseTime { get; set; }
         /// <summary>
         /// 产权年限
         /// </summary>

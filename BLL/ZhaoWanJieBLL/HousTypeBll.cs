@@ -45,6 +45,10 @@ namespace HouseBLL.ZhaoWanJieBLL
         {
             return houseDal.UpdateHousType(price,hid);
         }
+        public Fen Sel(int ids, int pageindex, int pagesize)
+        {
+            return houseDal.Sel(ids,pageindex,pagesize);
+        }
 
     }
 }

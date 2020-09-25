@@ -47,5 +47,9 @@ namespace HouseBLL.ZhaoWanJieBLL
         {
             return shapeDal.UpdateHouseShape(price,state,aid,hid,htid,hsid);
         }
+        public ShapePage SeleShape(int ids, int pageindex, int pagesize)
+        {
+            return shapeDal.SeleShape(ids,pageindex,pagesize);
+        }
     }
 }

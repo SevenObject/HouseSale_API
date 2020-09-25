@@ -57,5 +57,13 @@ namespace HouseModel
         /// 楼盘名称
         /// </summary>
         public string HName { get; set; }
+        /// <summary>
+        /// 售楼处
+        /// </summary>
+        public string SellHouse { get; set; }
+        /// <summary>
+        /// 交房时间
+        /// </summary>
+        public DateTime HandHouseTime { get; set; }
     }
 }

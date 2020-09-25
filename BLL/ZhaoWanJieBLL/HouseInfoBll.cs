@@ -43,5 +43,6 @@ namespace HouseBLL.ZhaoWanJieBLL
         {
             return infoDal.AddHouseInfo(h);
         }
+         
     }
 }

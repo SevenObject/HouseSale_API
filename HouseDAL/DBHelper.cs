@@ -288,6 +288,50 @@ namespace DAL
             return list;
         }
 
+        /// <summary>
+        /// 存储过程查询
+        /// </summary>
+        /// <param name="procname"></param>
+        /// <param name="paras"></param>
+        /// <returns></returns>
+        public static DataTable GetProcTable(string procname, SqlParameter[] paras = null)
+        {
+            using (SqlConnection conn = new SqlConnection(strConn))
+            {
+                conn.Open();
+                DataTable dt = new DataTable();
+                SqlCommand comm = new SqlCommand(procname, conn);
+                comm.CommandType = CommandType.StoredProcedure;
+                if (paras != null)
+                {
+                    comm.Parameters.AddRange(paras);
+                }
+                SqlDataAdapter sda = new SqlDataAdapter(comm);
+                sda.Fill(dt);
+                return dt;
+            }
+        }
+        /// <summary>
+        /// 增删改存储过程
+        /// </summary>
+        /// <param name="procname"></param>
+        /// <param name="paras"></param>
+        /// <returns></returns>
+        public static int AddUpdateDelte(string procname, SqlParameter[] paras = null)
+        {
+            using (SqlConnection conn = new SqlConnection(strConn))
+            {
+                conn.Open();
+                SqlCommand comm = new SqlCommand(procname, conn);
+                comm.CommandType = CommandType.StoredProcedure;
+                if (paras != null)
+                {
+                    comm.Parameters.AddRange(paras);
+                }
+                return comm.ExecuteNonQuery();
+            }
+        }
+
     }
 
 }

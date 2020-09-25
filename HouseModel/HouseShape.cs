@@ -85,4 +85,5 @@ namespace HouseModel
         /// </summary>
         public string AName { get; set; }
     }
+
 }

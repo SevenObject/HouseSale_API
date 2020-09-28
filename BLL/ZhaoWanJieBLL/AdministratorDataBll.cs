@@ -46,5 +46,13 @@ namespace HouseBLL.ZhaoWanJieBLL
             return dataDal.UpdateAdmin(phone,apost,aid);
         }
 
+        public List<AdministratorData> SeleAdministr(int ids)
+        {
+            return dataDal.SeleAdministr(ids);
+        }
+        public List<AdministratorData> SAdministr()
+        {
+            return dataDal.SAdministr();
+        }
     }
 }

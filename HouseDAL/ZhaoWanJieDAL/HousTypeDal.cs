@@ -25,7 +25,7 @@ namespace HouseDAL.ZhaoWanJieDAL
             string sql = $"select * from HouseInfo s join HousType h on s.HTId=h.HTId where 1=1";
             if (htid>0)
             {
-                sql += $"and HTId='{htid}'";
+                sql += $"and s.HTId='{htid}'";
             }
             if (!string.IsNullOrEmpty(orien))
             {
@@ -40,6 +40,7 @@ namespace HouseDAL.ZhaoWanJieDAL
             {
                 sql += $"and h.PriceCount<='{prices}'";
             }
+            sql += "order by BeginTime desc";
             var list = db.GetToList<HousType>(sql);
             if (pageindex < 1)
             {
@@ -123,6 +124,18 @@ namespace HouseDAL.ZhaoWanJieDAL
             f.pageSize = pagesize;
             f.allCount = count;
             return f;
+        }
+
+        public List<HousType>SeleHousType()
+        {
+            string sql = "select * from HouseInfo s join HousType h on s.HTId=h.HTId";
+            return db.GetToList<HousType>(sql);
+        }
+
+        public List<HousType>SeleHous(int ids)
+        {
+            string sql = $"select * from HouseInfo s join HousType h on s.HTId=h.HTId where h.HId='{ids}'";
+            return db.GetToList<HousType>(sql);
         }
     }
 }

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Cors;
 
 namespace HouseSale.Controllers.ZhaoWanJieControllers
 {
-    [EnableCors("cros")]
+     
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class HouseInfoContr : ControllerBase
@@ -53,6 +53,20 @@ namespace HouseSale.Controllers.ZhaoWanJieControllers
         {
             return infoBll.AddHouseInfo(h);
         }
-         
+        [HttpPost]
+        public int DeleHouseInfo(int ids)
+        {
+            return infoBll.DeleHouseInfo(ids);
+        }
+        [HttpGet]
+        public List<HouseInfo> SeleHouInfo()
+        {
+            return infoBll.SeleHouInfo();
+        }
+        [HttpGet]
+        public List<HouseInfo> UpdateAddHouInfo(int ids)
+        {
+            return infoBll.UpdateAddHouInfo(ids);
+        }
     }
 }

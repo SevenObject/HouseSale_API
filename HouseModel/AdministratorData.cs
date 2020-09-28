@@ -33,11 +33,11 @@ namespace HouseModel
         /// <summary>
         /// 管理员手机号
         /// </summary>
-        public decimal APlaneNumber { get; set; }
+        public string APlaneNumber { get; set; }
         /// <summary>
         /// 身份证件号
         /// </summary>
-        public decimal Card { get; set; }
+        public string Card { get; set; }
         /// <summary>
         /// 入职时间
         /// </summary>
@@ -53,7 +53,7 @@ namespace HouseModel
         /// <summary>
         /// 公司员工证件号
         /// </summary>
-        public int CompanyCard { get; set; }
+        public string CompanyCard { get; set; }
         /// <summary>
         /// 所属公司
         /// </summary>
@@ -61,6 +61,6 @@ namespace HouseModel
         /// <summary>
         /// 管理员密码
         /// </summary>
-        public string Password { get; set; }
+        public string APassword { get; set; }
     }
 }

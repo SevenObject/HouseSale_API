@@ -12,7 +12,6 @@ namespace HouseSale.Controllers.ZhaoWanJieControllers
 {
     [EnableCors("cros")]
     [Route("api/[controller]/[action]")]
-    [EnableCors("cors")]
     [ApiController]
     public class HouseInfoContr : ControllerBase
     {

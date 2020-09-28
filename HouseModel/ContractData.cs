@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,15 +19,15 @@ namespace HouseModel
         /// <summary>
         /// 管理员外键
         /// </summary>
-        public int AId { get; set; }
+        public string AName { get; set; }
         /// <summary>
         /// 客户外键
         /// </summary>
-        public int ClientId { get; set; }
+        public string CName { get; set; }
         /// <summary>
         /// 房产外键
         /// </summary>
-        public int HouseId { get; set; }
+        public int HSId { get; set; }
         /// <summary>
         /// 总价(大写)
         /// </summary>
@@ -42,7 +43,7 @@ namespace HouseModel
         /// <summary>
         /// 签约日期
         /// </summary>
-        public decimal WorkDate { get; set; }
+        public DateTime WorkDate { get; set; }
         /// <summary>
         /// 联系电话
         /// </summary>
@@ -55,5 +56,25 @@ namespace HouseModel
         /// 首付(小写)
         /// </summary>
         public decimal FirstBuyDown { get; set; }
+        /// <summary>
+        /// 合同编号
+        /// </summary>
+        public string ContractCode { get; set; }
+        /// <summary>
+        /// 当前页
+        /// </summary>
+        public int PageIndex { get; set; }
+        /// <summary>
+        /// 当前条数
+        /// </summary>
+        public int PageSize { get; set; }
+        /// <summary>
+        /// 当前条数
+        /// </summary>
+        public int TotalCount { get; set; }
+        /// <summary>
+        /// 当前页数
+        /// </summary>
+        public int TotalPage { get; set; }
     }
 }

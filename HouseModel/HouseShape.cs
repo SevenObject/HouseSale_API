@@ -89,4 +89,5 @@ namespace HouseModel
         /// </summary>
         public string Orientation { get; set; }
     }
+
 }

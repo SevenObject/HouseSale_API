@@ -18,11 +18,12 @@ namespace HouseModel
         /// <summary>
         /// 客户外键
         /// </summary>
-        public int ClientId { get; set; }
+        public string AName { get; set; }
         /// <summary>
         /// 房型外键
         /// </summary>
-        public int HouseId { get; set; }
+        public string CName { get; set; }
+        public string HNames { get; set; }
         /// <summary>
         /// 退房日期
         /// </summary>
@@ -30,11 +31,11 @@ namespace HouseModel
         /// <summary>
         /// 退房状态
         /// </summary>
-        public int OutHouseState { get; set; }
+        public string OutHouseCause { get; set; }
         /// <summary>
         /// 退房原因
         /// </summary>
-        public string OutHouseCause { get; set; }
+        public int OutHouseState { get; set; }
         /// <summary>
         /// 经纪人外键
         /// </summary>

@@ -60,5 +60,14 @@ namespace HouseSale.Controllers.ZhaoWanJieControllers
         {
             return typeBll.Sel(ids, pageindex, pagesize);
         }
+        [HttpGet]
+        public List<HousType> SeleHousType()
+        {
+            return typeBll.SeleHousType();
+        }
+        public List<HousType> SeleHous(int ids)
+        {
+            return typeBll.SeleHous(ids);
+        }
     }
 }

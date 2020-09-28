@@ -29,20 +29,21 @@ namespace HouseDAL.ZhaoWanJieDAL
             }
             if (!string.IsNullOrEmpty(begintime))
             {
-                sql += $"and BeginTime>='{begintime}'";
+                sql += $"and BeginTime<='{begintime}'";
             }
             if (!string.IsNullOrEmpty(statime))
             {
                 sql += $"and BeginTime<='{statime}'";
             }
-            if (!string.IsNullOrEmpty(begintime)|| !string.IsNullOrEmpty(statime))
-            {
-                sql += $"and BeginTime>='{begintime}'and BeginTime<='{statime}'";
-            }
+            //if (!string.IsNullOrEmpty(begintime)|| !string.IsNullOrEmpty(statime))
+            //{
+            //    sql += $"and BeginTime>='{begintime}'and BeginTime<='{statime}'";
+            //}
             if (!string.IsNullOrEmpty(card))
             {
                 sql += $"and CompanyCard='{card}'";
             }
+            sql += "order by AId desc";
             var list = db.GetToList<AdministratorData>(sql);
             if (pageindex<1)
             {
@@ -93,6 +94,16 @@ namespace HouseDAL.ZhaoWanJieDAL
         {
             string sql = $"update AdministratorData set APlaneNumber='{phone}',APosition='{apost}' where AId='{aid}'";
             return db.ExecuteNonQuery(sql);
+        }
+        public  List<AdministratorData> SeleAdministr(int ids)
+        {
+            string sql = $"select * from AdministratorData where AId='{ids}'";
+            return db.GetToList<AdministratorData>(sql);
+        }
+        public List<AdministratorData> SAdministr()
+        {
+            string sql = $"select * from AdministratorData";
+            return db.GetToList<AdministratorData>(sql);
         }
     }
 }

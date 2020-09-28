@@ -55,5 +55,14 @@ namespace HouseSale.Controllers.ZhaoWanJieControllers
         {
             return dataBll.UpdateAdmin(phone, apost, aid);
         }
+        [HttpGet]
+        public List<AdministratorData> SeleAdministr(int ids)
+        {
+            return dataBll.SeleAdministr(ids);
+        }
+        public List<AdministratorData> SAdministr()
+        {
+            return dataBll.SAdministr();
+        }
     }
 }

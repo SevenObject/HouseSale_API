@@ -84,5 +84,9 @@ namespace HouseModel
         /// 管理员姓名
         /// </summary>
         public string AName { get; set; }
+        /// <summary>
+        /// 朝向
+        /// </summary>
+        public string Orientation { get; set; }
     }
 }

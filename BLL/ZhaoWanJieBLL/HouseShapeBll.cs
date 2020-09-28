@@ -18,9 +18,9 @@ namespace HouseBLL.ZhaoWanJieBLL
         /// <param name="hid">户型</param>
         /// <param name="htid">楼盘</param>
         /// <returns></returns>
-        public ShapePage GetHouseShapes(int aid, string tation, int hid, int htid, int pageindex, int pagesize)
+        public ShapePage GetHouseShapes( string tation, int hid, int htid, int pageindex, int pagesize)
         {
-            return shapeDal.GetHouseShapes(aid,tation,hid,htid,pageindex,pagesize);
+            return shapeDal.GetHouseShapes(tation,hid,htid,pageindex,pagesize);
         }
 
         /// <summary>
@@ -47,9 +47,17 @@ namespace HouseBLL.ZhaoWanJieBLL
         {
             return shapeDal.UpdateHouseShape(price,state,aid,hid,htid,hsid);
         }
+        public int UpdateState(int ids)
+        {
+            return shapeDal.UpdateState(ids);
+        }
         public ShapePage SeleShape(int ids, int pageindex, int pagesize)
         {
             return shapeDal.SeleShape(ids,pageindex,pagesize);
+        }
+        public List<HouseShape> SeleHou(int ids)
+        {
+            return shapeDal.SeleHou(ids);
         }
     }
 }

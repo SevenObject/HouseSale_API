@@ -49,6 +49,13 @@ namespace HouseBLL.ZhaoWanJieBLL
         {
             return houseDal.Sel(ids,pageindex,pagesize);
         }
-
+        public List<HousType> SeleHousType()
+        {
+            return houseDal.SeleHousType();
+        }
+        public List<HousType> SeleHous(int ids)
+        {
+            return houseDal.SeleHous(ids);
+        }
     }
 }

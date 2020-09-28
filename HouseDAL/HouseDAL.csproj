@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Folder Include="LiangZijing\" />
-    <Folder Include="WangBaoYi\" />
     <Folder Include="ZhuYanSheng\" />
     <Folder Include="FengLuShun\" />
   </ItemGroup>
@@ -21,6 +20,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HouseModel\HouseModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\WUDownloadCache\VS2019_9\VS2017_01\ExamMonthB.UI\ExamMonthB.UI\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

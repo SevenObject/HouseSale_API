@@ -23,7 +23,7 @@ namespace HouseModel
 
         /// <summary>
         /// 房间主键Id
-        /// </summary>
+        /// </summary>..............
         public int HSId { get; set; }
         /// <summary>
         /// 房间号
@@ -74,7 +74,7 @@ namespace HouseModel
         /// <summary>
         /// 交房时间
         /// </summary>
-        public string HandHouseTime { get; set; }
+        public DateTime HandHouseTime { get; set; }
         /// <summary>
         /// 产权年限
         /// </summary>
@@ -84,5 +84,10 @@ namespace HouseModel
         /// 管理员姓名
         /// </summary>
         public string AName { get; set; }
+        /// <summary>
+        /// 朝向
+        /// </summary>
+        public string Orientation { get; set; }
     }
+
 }

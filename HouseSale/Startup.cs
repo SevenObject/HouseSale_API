@@ -34,7 +34,7 @@ namespace HouseSale
             {
                 options.AddPolicy("cors", builder =>
                 {
-                    builder.WithOrigins("http://localhost:5171")//允许指定域名访问
+                    builder.WithOrigins("http://localhost:5400")//允许指定域名访问
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials();//指定处理cookie

@@ -43,5 +43,18 @@ namespace HouseBLL.ZhaoWanJieBLL
         {
             return infoDal.AddHouseInfo(h);
         }
+
+        public int DeleHouseInfo(int ids)
+        {
+            return infoDal.DeleHouseInfo(ids);
+        }
+        public List<HouseInfo> SeleHouInfo()
+        {
+            return infoDal.SeleHouInfo();
+        }
+        public List<HouseInfo> UpdateAddHouInfo(int ids)
+        {
+            return infoDal.UpdateAddHouInfo(ids);
+        }
     }
 }

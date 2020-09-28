@@ -21,7 +21,7 @@ namespace HouseDAL.ZhaoWanJieDAL
         /// <returns></returns>
         public Page GetHouseInfos(string hname,string htptime,string hantime, int pageindex,int pagesize)
         {
-            string sql = $"select * from HouseInfo where 1=1";
+            string sql = $"select * from HouseInfo where AddressId=0";
             if (!string.IsNullOrEmpty(hname))
             {
                 sql += $"and HName like '%{hname}%'";
@@ -36,8 +36,9 @@ namespace HouseDAL.ZhaoWanJieDAL
             }
             if (!string.IsNullOrEmpty(hantime))
             {
-                sql += $"and HandHouseTime>='{hantime}'";
+                sql += $"and HandHouseTime<='{hantime}'";
             }
+            sql += "order by HTId desc";
             var list = db.GetToList<HouseInfo>(sql);
             if (pageindex<1)
             {
@@ -66,7 +67,16 @@ namespace HouseDAL.ZhaoWanJieDAL
             p.allCount = count;
             return p;
         }
-
+        /// <summary>
+        /// 删除楼盘
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public int DeleHouseInfo(int ids)
+        {
+            string sql = $"update HouseInfo set AddressId=1 where HTId='{ids}'";
+            return db.ExecuteNonQuery(sql);
+        }
         /// <summary>
         /// 修改楼盘信息
         /// </summary>
@@ -87,8 +97,19 @@ namespace HouseDAL.ZhaoWanJieDAL
         /// <returns></returns>
         public int AddHouseInfo(HouseInfo h)
         {
-            string sql = $"insert into HouseInfo values ('{h.HName}','{h.HTPicture}','{h.HTPDateTime}','{h.ProjictSite}','{h.SellHouse}','{h.developers}','{h.SellState}','{h.Architecturearea}','{h.HandHouseTime}','{h.YearAstrict}','{h.HouseState}','{h.Plot}','{h.Greeningrate}','{h.Rim}')";
+            string sql = $"insert into HouseInfo values ('{h.HName}','{h.HTPicture}','{h.HTPDateTime}','{h.ProjictSite}','{h.SellHouse}','{h.developers}','{h.SellState}','{h.Architecturearea}','{h.HandHouseTime}','{h.YearAstrict}','{h.HouseStates}','{h.Plot}','{h.Greeningrate}','{h.Rim}')";
             return db.ExecuteNonQuery(sql);
+        }
+
+        public List<HouseInfo>SeleHouInfo()
+        {
+            string sql = "select * from HouseInfo";
+            return db.GetToList<HouseInfo>(sql);
+        }
+        public List<HouseInfo> UpdateAddHouInfo(int ids)
+        {
+            string sql = $"select * from HouseInfo where HTId='{ids}'";
+            return db.GetToList<HouseInfo>(sql);
         }
     }
 }

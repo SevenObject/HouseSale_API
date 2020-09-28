@@ -82,5 +82,6 @@ namespace HouseModel
         /// 周边规划
         /// </summary>
         public string Rim { get; set; }
+        public int AddressId { get; set; }
     }
 }

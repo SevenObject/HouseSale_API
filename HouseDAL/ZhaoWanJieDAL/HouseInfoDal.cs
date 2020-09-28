@@ -38,7 +38,7 @@ namespace HouseDAL.ZhaoWanJieDAL
             {
                 sql += $"and HandHouseTime<='{hantime}'";
             }
-            sql += "order by HTId desc";
+            sql += " order by HTId desc";
             var list = db.GetToList<HouseInfo>(sql);
             if (pageindex<1)
             {

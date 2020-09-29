@@ -72,5 +72,6 @@ namespace HouseSale.Models
         /// 
         /// </summary>
         public string Rim { get; set; }
+        public int AddressId { get; set; }
     }
 }

@@ -10,9 +10,7 @@
 
   <ItemGroup>
     <Folder Include="LiangZijing\" />
-    <Folder Include="ZhuYanSheng\" />
     <Folder Include="FengLuShun\" />
-    <Folder Include="LiYongHao\" />
   </ItemGroup>
 
   <ItemGroup>

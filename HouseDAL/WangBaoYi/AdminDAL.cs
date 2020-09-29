@@ -16,14 +16,15 @@ namespace HouseDAL.WangBaoYi
         /// </summary>
         /// <param name="contract"></param>
         /// <returns></returns>
-        public AdministratorData Login(string name, string pwd)
+        public int Login(string name, string pwd)
         {
-            string sql = "select * from AdministratorData a where 1=1 ";
+            string sql = "select a.AId from AdministratorData a where 1=1 ";
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(pwd))
             {
-                sql += $" and a.AName like '%{name}%' and a.APassword like '%{pwd}%'";
+                sql += $" and a.AName = '{name}' and a.APassword ='{pwd}'";
             }
-            return (AdministratorData)DBHelper.ExecuteScalar(sql);
+            return (int)DBHelper.ExecuteScalar(sql);
         }
+        
     }
 }

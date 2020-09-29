@@ -44,7 +44,7 @@ namespace HouseBLL.WangbaoyiBLL
         /// </summary>
         /// <param name="contract"></param>
         /// <returns></returns>
-        public AdministratorData Login(string name, string pwd)
+        public int Login(string name, string pwd)
         {
             return adal.Login(name,pwd);
         }

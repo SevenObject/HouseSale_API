@@ -53,7 +53,7 @@ namespace HouseSale.Controllers.WangbaoyiControllers
         /// <param name="contract"></param>
         /// <returns></returns>
         [HttpGet("Login")]
-        public AdministratorData Login(string name, string pwd)
+        public int Login(string name, string pwd)
         {
             return bll.Login(name, pwd);
         }

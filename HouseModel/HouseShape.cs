@@ -23,7 +23,7 @@ namespace HouseModel
 
         /// <summary>
         /// 房间主键Id
-        /// </summary>
+        /// </summary>..............
         public int HSId { get; set; }
         /// <summary>
         /// 房间号

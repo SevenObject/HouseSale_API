@@ -12,11 +12,6 @@ namespace HouseDAL.WangBaoYi
 {
     public class ContractDAL
     {
-        /// <summary>
-        /// 120行 删除合同
-        /// </summary>
-        /// <param name="contract"></param>
-        /// <returns></returns>
         #region  显示
         /// <summary>
         /// 显示合同列表
@@ -25,7 +20,6 @@ namespace HouseDAL.WangBaoYi
         /// <returns></returns>
         public List<ContractData> ShowConList(ContractData contract)
         {
-            #region 1
             SqlParameter[] para = new SqlParameter[]
             {
                 new SqlParameter("@ContractCode",contract.ContractCode),
@@ -47,7 +41,6 @@ namespace HouseDAL.WangBaoYi
                 list.FirstOrDefault().TotalPage = int.Parse(para[4].Value.ToString());
             }
             return list;
-            #endregion
 
 
         }
@@ -58,7 +51,6 @@ namespace HouseDAL.WangBaoYi
         /// <returns></returns>
         public List<ContractData> ShowCon(ContractData contract)
         {
-            #region 2
             SqlParameter[] para = new SqlParameter[] {
                 new SqlParameter("@CId",contract.CId),
             };
@@ -66,7 +58,6 @@ namespace HouseDAL.WangBaoYi
             var str = JsonConvert.SerializeObject(dt);
             var list = JsonConvert.DeserializeObject<List<ContractData>>(str);
             return list;
-            #endregion
         }
         /// <summary>
         /// 预购买房产的编号
@@ -75,7 +66,6 @@ namespace HouseDAL.WangBaoYi
         /// <returns></returns>
         public List<HouseShape> ShowHouseShape(HouseShape shape)
         {
-            #region 3
             SqlParameter[] para = new SqlParameter[] {
                 new SqlParameter("@HSId",shape.HSId)
             };
@@ -83,7 +73,6 @@ namespace HouseDAL.WangBaoYi
             var str = JsonConvert.SerializeObject(dt);
             var list = JsonConvert.DeserializeObject<List<HouseShape>>(str);
             return list;
-            #endregion
         }
         #endregion
         #region 添加
@@ -124,6 +113,11 @@ namespace HouseDAL.WangBaoYi
         }
         #endregion
         #region 删除
+        /// <summary>
+        /// 120行 删除合同
+        /// </summary>
+        /// <param name="contract"></param>
+        /// <returns></returns>
         public int DeleteCon(ContractData contract)
         {
             SqlParameter[] para = new SqlParameter[]

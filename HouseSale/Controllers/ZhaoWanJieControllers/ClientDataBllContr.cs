@@ -23,9 +23,9 @@ namespace HouseSale.Controllers.ZhaoWanJieControllers
         /// <param name="daikan"></param>
         /// <returns></returns>
         [HttpGet]
-        public ClienPage GetClientDatas(int aid, int pageindex, int pagesize, int daikan)
+        public ClienPage GetClientDatas(int aid, int pageindex, int pagesize, int daikan, string name)
         {
-            return clenbll.GetClientDatas(aid, pageindex, pagesize, daikan);
+            return clenbll.GetClientDatas(aid, pageindex, pagesize, daikan,name);
         }
         /// <summary>
         /// 添加客户信息
@@ -36,6 +36,16 @@ namespace HouseSale.Controllers.ZhaoWanJieControllers
         public int AddClient(ClientData c)
         {
             return clenbll.AddClient(c);
+        }
+        [HttpPost]
+        public int UpdateClient(int ids)
+        {
+            return clenbll.UpdateClient(ids);
+        }
+        [HttpPost]
+        public int DeleClient(int ids)
+        {
+            return clenbll.DeleClient(ids);
         }
     }
 }

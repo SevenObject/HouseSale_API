@@ -51,5 +51,8 @@ namespace HouseModel
         public int DaiKan { get; set; }
 
         public int AId { get; set; }
+        public string AName { get; set; }
+
+        public int Cstates { get; set; }
     }
 }

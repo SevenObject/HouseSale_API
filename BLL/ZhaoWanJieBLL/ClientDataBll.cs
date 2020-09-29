@@ -18,9 +18,9 @@ namespace HouseBLL.ZhaoWanJieBLL
         /// <param name="pagesize"></param>
         /// <param name="daikan"></param>
         /// <returns></returns>
-        public ClienPage GetClientDatas(int aid, int pageindex, int pagesize, int daikan)
+        public ClienPage GetClientDatas(int aid, int pageindex, int pagesize, int daikan, string name)
         {
-            return Clientd.GetClientDatas(aid,pageindex,pagesize,daikan);
+            return Clientd.GetClientDatas(aid,pageindex,pagesize,daikan,name);
         }
         /// <summary>
         /// 添加客户信息
@@ -30,6 +30,14 @@ namespace HouseBLL.ZhaoWanJieBLL
         public int AddClient(ClientData c)
         {
             return Clientd.AddClient(c);
+        }
+        public int UpdateClient(int ids)
+        {
+            return Clientd.UpdateClient(ids);
+        }
+        public int DeleClient(int ids)
+        {
+            return Clientd.DeleClient(ids);
         }
     }
 }

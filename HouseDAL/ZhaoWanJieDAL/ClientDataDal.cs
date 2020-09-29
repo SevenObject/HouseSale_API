@@ -19,14 +19,23 @@ namespace HouseDAL.ZhaoWanJieDAL
         /// <param name="pagesize"></param>
         /// <param name="daikan"></param>
         /// <returns></returns>
-        public ClienPage GetClientDatas(int aid,int pageindex,int pagesize,int daikan)
+        public ClienPage GetClientDatas(int aid,int pageindex,int pagesize,int daikan,string name)
         {
-            string sql = $"select * from ClientData  c join AdministratorData a on c.AId=a.AId where c.AId='{aid}'";
+            string sql = $"select * from ClientData  c join AdministratorData a on c.AId=a.AId where c.AId='{aid}' and c.Cstates=0";
              
             if (daikan>0)
             {
                 sql += $"and DaiKan='{daikan}'";
             }
+            if (daikan < 0)
+            {
+                sql += $"and DaiKan='{daikan}'";
+            }
+            if (!string.IsNullOrEmpty(name))
+            {
+                sql += $"and c.CName like '%{name}%'";
+            }
+            sql += "order by CId desc";
             var list = db.GetToList<ClientData>(sql);
             if (pageindex < 1)
             {
@@ -63,6 +72,28 @@ namespace HouseDAL.ZhaoWanJieDAL
         public int AddClient(ClientData c)
         {
             string sql = $"insert into ClientData values ('{c.CName}','{c.CPlaneNumber}','{c.ClientFirstHouse}','{c.Clientloans}','{c.BuyHouseRole}','{c.DaiKan}','{c.AId}')";
+            return db.ExecuteNonQuery(sql);
+        }
+
+        /// <summary>
+        /// 修改带看状态
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public int UpdateClient(int ids)
+        {
+            string sql = $"update ClientData set DaiKan=1 where CId='{ids}'";
+            return db.ExecuteNonQuery(sql);
+        }
+
+        /// <summary>
+        /// 改变删除状态
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public int DeleClient(int ids)
+        {
+            string sql = $"update ClientData set Cstates=1 where CId='{ids}'";
             return db.ExecuteNonQuery(sql);
         }
     }

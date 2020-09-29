@@ -21,7 +21,7 @@ namespace HouseDAL.ZhaoWanJieDAL
             try
             {
                 //连接数据库
-                SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=HouseSaleSystem;Integrated Security=True");
+                SqlConnection conn = new SqlConnection("Data Source=10.3.158.23;Initial Catalog=HouseSaleSystem;Integrated Security=True");
                 //打开
                 if (conn.State == ConnectionState.Closed)
                 {
@@ -50,7 +50,7 @@ namespace HouseDAL.ZhaoWanJieDAL
             try
             {
                 //连接数据库
-                SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=HouseSaleSystem;Integrated Security=True");
+                SqlConnection conn = new SqlConnection("server=10.3.158.23;database=HouseSaleSystem;uid=sa;pwd=!QAZ@WSX123;");
                 //打开
                 if (conn.State == ConnectionState.Closed)
                 {
